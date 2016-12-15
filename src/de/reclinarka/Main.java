@@ -8,13 +8,18 @@ import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
 
 import javax.swing.*;
+import java.util.concurrent.TimeUnit;
 
 public class Main extends Thread{
 
     public static void main(String[] args) {
-        new Thread(GraphicsHandler.start());
+        Thread gpraphics = new Thread(GraphicsHandler.start());
         while (true) {
-
+            try {
+                TimeUnit.MILLISECONDS.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }
