@@ -3,6 +3,7 @@ package de.reclinarka;
 
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.solid.Block;
+import de.reclinarka.processing.GraphicsHandler;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
 
@@ -11,15 +12,9 @@ import javax.swing.*;
 public class Main extends Thread{
 
     public static void main(String[] args) {
-        new Thread();
-        Slate s = new Slate();
-        s.addDrawable(new Block(400,400,0,0));
-        s.addDrawable(new Block(400,300,0,0));
-        Window frame = new Window("Test",s);
+        new Thread(GraphicsHandler.start());
         while (true) {
-            //TimeUnit.MILLISECONDS.sleep(1000/20);
-            s.getContent().forEach((f) -> mover(s,f));
-            frame.repaint();
+
         }
 
     }
