@@ -2,6 +2,7 @@ package de.reclinarka.objects.solid;
 
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.objects.Hitbox;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,6 +13,7 @@ public class Block implements Drawable {
 
     public Block(int x, int y, int mapX, int mapY){
         pos = new Coordinate(x,y,0,0);
+        hitbox = new Hitbox();
         Block_ID = "default";
         update();
     }
@@ -33,6 +35,8 @@ public class Block implements Drawable {
     private int height = 16;
 
     private String Block_ID = "default";
+
+    private Hitbox hitbox;
 
     //Getter
 
