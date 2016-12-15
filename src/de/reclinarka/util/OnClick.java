@@ -16,10 +16,15 @@ import static de.reclinarka.processing.GraphicsHandler.count;
 public class OnClick implements MouseListener, MouseMotionListener {
 
     private boolean test=false;
+    private static int lvl = 0;
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        GraphicsHandler.Content.add(new Brick(16*GraphicsHandler.count, 400 , 16*GraphicsHandler.count, 400));
+        if(16*count>800-16){
+            count = 0;
+            lvl++;
+        }
+        GraphicsHandler.Content.add(new Brick(16*GraphicsHandler.count, 400 + (lvl*16), 16*GraphicsHandler.count, 400 + (lvl*16)));
         GraphicsHandler.count++;
 
     }

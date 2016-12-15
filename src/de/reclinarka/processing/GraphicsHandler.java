@@ -3,7 +3,9 @@ package de.reclinarka.processing;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
+import de.reclinarka.util.DrawablePrinter;
 import de.reclinarka.util.OnClick;
+import de.reclinarka.util.xCpmparator;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -42,7 +44,15 @@ public class GraphicsHandler extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //Content.forEach((f) -> mover(frame.getContentPane(),f));
+            //System.out.println("");
+            //System.out.println("before:");
+            //System.out.println("");
+            //DrawablePrinter.print(Content);
+            //Content.sort(new xCpmparator());
+            //System.out.println("");
+            //System.out.println("after:");
+            //System.out.println("");
+            //DrawablePrinter.print(Content);
             frame.repaint();
         }
     }
@@ -55,4 +65,7 @@ public class GraphicsHandler extends Thread{
             f.getPos().setY(0-f.getWidth());
         f.getPos().setY(f.getPos().getX() + 2);
     }
+
+
+
 }

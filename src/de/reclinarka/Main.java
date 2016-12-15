@@ -13,13 +13,15 @@ import java.beans.EventHandler;
 import java.util.EventListener;
 import java.util.concurrent.TimeUnit;
 
+import static de.reclinarka.processing.GraphicsHandler.count;
+
 public class Main extends Thread{
 
     public static void main(String[] args) {
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         for(int i = 0; i<20; i++){
-            graphicsHandler.Content.add(new Brick(16*i,400,16*i,400));
-            GraphicsHandler.count++;
+            graphicsHandler.Content.add(new Brick(16*count,400,16*count,400));
+            count++;
         }
         graphicsHandler.start();
 
