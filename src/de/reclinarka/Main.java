@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class Main extends Thread{
 
     public static void main(String[] args) {
-        Thread gpraphics = new Thread(GraphicsHandler.start());
+        Thread graphics = new Thread(GraphicsHandler.start());
         while (true) {
             try {
                 TimeUnit.MILLISECONDS.sleep(20);
