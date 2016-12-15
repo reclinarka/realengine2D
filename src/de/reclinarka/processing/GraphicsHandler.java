@@ -19,6 +19,7 @@ public class GraphicsHandler extends Thread{
     @Override
     public void run(){
         Slate game = new Slate(Content);
+
         Window frame = new Window(800,800,"Game",game);
         while (true) {
             try {
