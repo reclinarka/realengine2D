@@ -5,8 +5,11 @@ import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
 import de.reclinarka.util.OnClick;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -21,8 +24,16 @@ public class GraphicsHandler extends Thread{
     public static ArrayList<Drawable> Content = new ArrayList<Drawable>();
     @Override
     public void run(){
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/game.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         Slate game = new Slate(Content);
         Window frame = new Window(800,800,"Game",game);
+        frame.setIconImage(img);
         frame.getContentPane().addMouseListener(new OnClick());
 
         while (true) {
