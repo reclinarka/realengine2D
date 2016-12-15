@@ -18,9 +18,12 @@ public class Block implements Drawable {
         update();
     }
 
-    private void update(){
+    public Block() {
+    }
+
+    protected void update(){
         try {
-            texture = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/" + Block_ID + ".png"));
+            texture = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/Block_" + Block_ID + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,6 +71,14 @@ public class Block implements Drawable {
 
     public void setPos(Coordinate pos) {
         this.pos = pos;
+    }
+
+    public void setHitbox(Hitbox hitbox) {
+        this.hitbox = hitbox;
+    }
+
+    public void setBlock_ID(String block_ID) {
+        Block_ID = block_ID;
     }
 
     @Override

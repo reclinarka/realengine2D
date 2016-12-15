@@ -3,6 +3,7 @@ package de.reclinarka;
 
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.solid.Block;
+import de.reclinarka.objects.solid.blocks.Brick;
 import de.reclinarka.processing.GraphicsHandler;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
@@ -13,13 +14,20 @@ import java.util.concurrent.TimeUnit;
 public class Main extends Thread{
 
     public static void main(String[] args) {
-        Thread graphics = new Thread(GraphicsHandler.start());
+        GraphicsHandler graphicsHandler = new GraphicsHandler();
+        for(int i = 0; i<20; i++){
+            graphicsHandler.Content.add(new Brick(16*i,400,16*i,400));
+        }
+        graphicsHandler.start();
+
         while (true) {
             try {
-                TimeUnit.MILLISECONDS.sleep(20);
+                TimeUnit.MILLISECONDS.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            System.out.println("reached");
         }
 
     }

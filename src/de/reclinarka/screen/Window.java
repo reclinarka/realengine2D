@@ -9,8 +9,8 @@ import java.awt.*;
 public class Window extends JFrame {
     public Window(int width, int height, String windowTitle, JPanel content) {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(new Dimension(width, height));
-        setResizable(false);
+        getContentPane().setPreferredSize(new Dimension(width, height));
+        setResizable(true);
         setTitle(windowTitle);
 
         init(content);
