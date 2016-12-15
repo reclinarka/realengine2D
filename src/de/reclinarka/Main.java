@@ -9,6 +9,8 @@ import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
 
 import javax.swing.*;
+import java.beans.EventHandler;
+import java.util.EventListener;
 import java.util.concurrent.TimeUnit;
 
 public class Main extends Thread{
@@ -17,8 +19,10 @@ public class Main extends Thread{
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         for(int i = 0; i<20; i++){
             graphicsHandler.Content.add(new Brick(16*i,400,16*i,400));
+            GraphicsHandler.count++;
         }
         graphicsHandler.start();
+
 
         while (true) {
             try {

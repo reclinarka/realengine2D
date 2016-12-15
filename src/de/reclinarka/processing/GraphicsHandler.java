@@ -3,6 +3,7 @@ package de.reclinarka.processing;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
+import de.reclinarka.util.OnClick;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,13 +15,16 @@ import java.util.concurrent.TimeUnit;
  */
 public class GraphicsHandler extends Thread{
 
+    //temp
+    public static int count = 0;
 
     public static ArrayList<Drawable> Content = new ArrayList<Drawable>();
     @Override
     public void run(){
         Slate game = new Slate(Content);
-
         Window frame = new Window(800,800,"Game",game);
+        frame.getContentPane().addMouseListener(new OnClick());
+
         while (true) {
             try {
                 TimeUnit.MILLISECONDS.sleep(1000/20);
