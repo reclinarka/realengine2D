@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="intellij">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../APIs/jogl/intellij" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../APIs/jogl/intellij" />
+    </NATIVE>
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../APIs/jogl/intellij" recursive="false" />
+  </library>
+</component>
