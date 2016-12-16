@@ -24,16 +24,22 @@ public class GraphicsHandler extends Thread{
     public static int count = 0;
 
     public static ArrayList<Drawable> Content = new ArrayList<Drawable>();
+
+    public static ArrayList<Drawable> ContentOut = new ArrayList<Drawable>();
     @Override
     public void run(){
         BufferedImage img = null;
+        ArrayList<Drawable> Temp;
         try {
             img = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/game.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Slate game = new Slate(Content);
+        ContentOut = (ArrayList<Drawable>) Content.clone();
+        ContentOut.sort(new xCpmparator());
+
+        Slate game = new Slate(ContentOut);
         Window frame = new Window(800,800,"Game",game);
         frame.setIconImage(img);
         frame.getContentPane().addMouseListener(new OnClick());
@@ -44,15 +50,10 @@ public class GraphicsHandler extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //System.out.println("");
-            //System.out.println("before:");
-            //System.out.println("");
-            //DrawablePrinter.print(Content);
-            //Content.sort(new xCpmparator());
-            //System.out.println("");
-            //System.out.println("after:");
-            //System.out.println("");
-            //DrawablePrinter.print(Content);
+
+            ContentOut = (ArrayList<Drawable>) Content.clone();
+            ContentOut.sort(new xCpmparator());
+
             frame.repaint();
         }
     }
