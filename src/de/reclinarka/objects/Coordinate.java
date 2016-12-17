@@ -30,6 +30,14 @@ public class Coordinate {
         return y;
     }
 
+    public int getMapX() {
+        return mapX;
+    }
+
+    public int getMapY() {
+        return mapY;
+    }
+
     //Setter
 
     public void setX(int x) {
@@ -38,5 +46,13 @@ public class Coordinate {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setMapX(int mapX) {
+        this.mapX = mapX;
+    }
+
+    public void setMapY(int mapY) {
+        this.mapY = mapY;
     }
 }

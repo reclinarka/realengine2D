@@ -1,6 +1,7 @@
 package de.reclinarka.screen.types;
 
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.processing.GraphicsHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +22,9 @@ public class Slate extends JPanel {
     private ArrayList<Drawable> content;
 
     protected void paintComponent(Graphics g) {
+        g.drawImage(GraphicsHandler.BackGrounds.get(0) ,0 ,0 ,GraphicsHandler.BackGrounds.get(0).getWidth(),GraphicsHandler.BackGrounds.get(0).getHeight() ,null);
+
         content.forEach((f) -> f.draw(g));
+
     }
 }

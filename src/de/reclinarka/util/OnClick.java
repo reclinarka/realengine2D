@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.concurrent.TimeUnit;
 
+import static de.reclinarka.processing.GraphicsHandler.Maps;
 import static de.reclinarka.processing.GraphicsHandler.count;
 
 /**
@@ -20,6 +21,8 @@ public class OnClick implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
+        Maps.get(0).setScreenX(Maps.get(0).getScreenX()+10);
         if(16*count>800-16){
             count = 0;
             lvl++;

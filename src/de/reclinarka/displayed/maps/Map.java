@@ -33,11 +33,11 @@ public class Map implements translator {
     }
 
     private void changeX(Coordinate inPos){
-        inPos.setX(inPos.getX() + ScreenX);
+        inPos.setX(inPos.getMapX() + ScreenX);
     }
 
     private void changeY(Coordinate inPos){
-        inPos.setY(inPos.getY() + ScreenY);
+        inPos.setY(inPos.getMapY() + ScreenY);
     }
 
     //Getter

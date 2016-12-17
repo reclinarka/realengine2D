@@ -9,7 +9,7 @@ import de.reclinarka.objects.solid.Block;
  */
 public class Brick extends Block {
     public Brick(int x, int y, int mapX, int mapY){
-        setPos(new Coordinate(x,y,0,0));
+        setPos(new Coordinate(x,y,mapX,mapY));
         setHitbox(new Hitbox(mapX,mapY,getWidth(),getHeight()));
         setBlock_ID( "Brick");
         update();

@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -28,10 +29,20 @@ public class GraphicsHandler extends Thread{
 
     public static ArrayList<Map> Maps = new ArrayList<Map>();
 
+    public static ArrayList<BufferedImage> BackGrounds = new ArrayList<BufferedImage>();
+
     public static ArrayList<Drawable> ContentOut = new ArrayList<Drawable>();
     @Override
     public void run(){
+
         BufferedImage img = null;
+        try {
+            img = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/resources/Mosaik.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BackGrounds.add(img);
+
         ArrayList<Drawable> Temp;
         try {
             img = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/game.png"));

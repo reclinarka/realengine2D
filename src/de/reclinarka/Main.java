@@ -9,7 +9,9 @@ import de.reclinarka.processing.GraphicsHandler;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.beans.EventHandler;
 import java.util.EventListener;
 import java.util.concurrent.TimeUnit;
@@ -19,10 +21,11 @@ import static de.reclinarka.processing.GraphicsHandler.count;
 public class Main extends Thread{
 
     public static void main(String[] args) {
+
         GraphicsHandler graphicsHandler = new GraphicsHandler();
-        graphicsHandler.Maps.add(new Map());
+        GraphicsHandler.Maps.add(new Map());
         for(int i = 0; i<20; i++){
-            graphicsHandler.Content.add(new Brick(16*count,400,16*count,400));
+            GraphicsHandler.Content.add(new Brick(16*count,400,16*count,400));
             count++;
         }
         graphicsHandler.start();
