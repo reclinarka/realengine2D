@@ -1,5 +1,6 @@
 package de.reclinarka.processing;
 
+import de.reclinarka.displayed.maps.Map;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
@@ -24,6 +25,8 @@ public class GraphicsHandler extends Thread{
     public static int count = 0;
 
     public static ArrayList<Drawable> Content = new ArrayList<Drawable>();
+
+    public static ArrayList<Map> Maps = new ArrayList<Map>();
 
     public static ArrayList<Drawable> ContentOut = new ArrayList<Drawable>();
     @Override
@@ -52,6 +55,7 @@ public class GraphicsHandler extends Thread{
             }
 
             ContentOut = (ArrayList<Drawable>) Content.clone();
+            Maps.get(0).translate(ContentOut);
             ContentOut.sort(new xCpmparator());
 
             frame.repaint();

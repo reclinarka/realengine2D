@@ -1,6 +1,7 @@
 package de.reclinarka;
 
 
+import de.reclinarka.displayed.maps.Map;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.solid.Block;
 import de.reclinarka.objects.solid.blocks.Brick;
@@ -19,6 +20,7 @@ public class Main extends Thread{
 
     public static void main(String[] args) {
         GraphicsHandler graphicsHandler = new GraphicsHandler();
+        graphicsHandler.Maps.add(new Map());
         for(int i = 0; i<20; i++){
             graphicsHandler.Content.add(new Brick(16*count,400,16*count,400));
             count++;
