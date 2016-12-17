@@ -14,20 +14,22 @@ import static de.reclinarka.processing.GraphicsHandler.count;
 /**
  * Created by reclinarka on 15.12.2016.
  */
-public class OnClick implements MouseListener, MouseMotionListener {
+public class OnClick implements MouseListener, MouseMotionListener{
 
-    private boolean test=false;
+    public static boolean test=false;
     private static int lvl = 0;
+
+
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
         Maps.get(0).setScreenX(Maps.get(0).getScreenX()+4);
-        if(16*count>800-16){
-            count = 0;
-            lvl++;
-        }
-        GraphicsHandler.Content.add(new Brick(16*GraphicsHandler.count, 400 + (lvl*16), 16*GraphicsHandler.count, 400 + (lvl*16)));
+
+        //if(16*count>800-16){
+        //    count = 0;
+        //    lvl++;
+        //}
+        GraphicsHandler.Content.add(new Brick(16*GraphicsHandler.count, (int) (Math.random()*801) , 16*GraphicsHandler.count, (int) (Math.random()*801) ));
         GraphicsHandler.count++;
 
     }
@@ -35,11 +37,24 @@ public class OnClick implements MouseListener, MouseMotionListener {
     @Override
     public void mousePressed(MouseEvent e) {
 
+
+
+        //test = true;
+        //Maps.get(0).setScreenX(Maps.get(0).getScreenX()+4);
+        //try {
+        //    TimeUnit.MILLISECONDS.sleep(20);
+        //} catch (InterruptedException e1) {
+        //    e1.printStackTrace();
+        //}
+        //Holder h = new Holder();
+        //h.start();
+
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        test = false;
     }
 
     @Override

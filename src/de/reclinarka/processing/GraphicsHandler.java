@@ -5,16 +5,13 @@ import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.background.BackGround;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
-import de.reclinarka.util.DrawablePrinter;
 import de.reclinarka.util.OnClick;
 import de.reclinarka.util.xCpmparator;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 

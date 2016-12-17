@@ -28,8 +28,6 @@ public class Main extends Thread{
         GraphicsHandler.Maps.add(new Map());
         GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", ((float) 0.333), 0, -800));
         for(int i = 0; i<200; i++){
-
-
             GraphicsHandler.Content.add(new Brick(16*count ,(int) (Math.random()*801) ,16*count ,(int) (Math.random()*801)));
             count++;
         }
