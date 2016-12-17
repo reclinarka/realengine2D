@@ -2,6 +2,7 @@ package de.reclinarka.processing;
 
 import de.reclinarka.displayed.maps.Map;
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.objects.background.BackGround;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
 import de.reclinarka.util.DrawablePrinter;
@@ -29,20 +30,13 @@ public class GraphicsHandler extends Thread{
 
     public static ArrayList<Map> Maps = new ArrayList<Map>();
 
-    public static ArrayList<BufferedImage> BackGrounds = new ArrayList<BufferedImage>();
+    public static ArrayList<BackGround> BackGrounds = new ArrayList<BackGround>();
 
     public static ArrayList<Drawable> ContentOut = new ArrayList<Drawable>();
     @Override
     public void run(){
 
         BufferedImage img = null;
-        try {
-            img = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/resources/Mosaik.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        BackGrounds.add(img);
-
         ArrayList<Drawable> Temp;
         try {
             img = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/game.png"));
@@ -67,6 +61,7 @@ public class GraphicsHandler extends Thread{
 
             ContentOut = (ArrayList<Drawable>) Content.clone();
             Maps.get(0).translate(ContentOut);
+            BackGrounds.get(0).transform(BackGrounds.get(0).getPos(),Maps.get(0).getScreenX(),Maps.get(0).getScreenY());
             ContentOut.sort(new xCpmparator());
 
             frame.repaint();
