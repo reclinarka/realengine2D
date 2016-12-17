@@ -22,7 +22,7 @@ public class OnClick implements MouseListener, MouseMotionListener {
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        Maps.get(0).setScreenX(Maps.get(0).getScreenX()+10);
+        Maps.get(0).setScreenX(Maps.get(0).getScreenX()+4);
         if(16*count>800-16){
             count = 0;
             lvl++;

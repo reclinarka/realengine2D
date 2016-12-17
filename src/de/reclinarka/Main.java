@@ -26,7 +26,7 @@ public class Main extends Thread{
 
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         GraphicsHandler.Maps.add(new Map());
-        GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/Mosaik.png", ((float) 0.333), 0, 0));
+        GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", ((float) 0.333), 0, -800));
         for(int i = 0; i<200; i++){
 
 
