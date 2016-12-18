@@ -1,6 +1,7 @@
 package de.reclinarka.util;
 
 import de.reclinarka.objects.solid.blocks.Brick;
+import de.reclinarka.player.Player;
 import de.reclinarka.processing.GraphicsHandler;
 
 import java.awt.event.MouseEvent;
@@ -23,14 +24,14 @@ public class OnClick implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        Maps.get(0).setScreenX(Maps.get(0).getScreenX()+4);
+        //Maps.get(0).setScreenX(Maps.get(0).getScreenX()+4);
 
         //if(16*count>800-16){
         //    count = 0;
         //    lvl++;
         //}
-        GraphicsHandler.Content.add(new Brick( 16*GraphicsHandler.count , (int) (Math.random()*801) ));
-        GraphicsHandler.count++;
+        //GraphicsHandler.Content.add(new Brick( 16*GraphicsHandler.count , (int) (Math.random()*801) ));
+        //GraphicsHandler.count++;
 
     }
 
@@ -39,15 +40,15 @@ public class OnClick implements MouseListener, MouseMotionListener{
 
 
 
-        //test = true;
-        //Maps.get(0).setScreenX(Maps.get(0).getScreenX()+4);
-        //try {
-        //    TimeUnit.MILLISECONDS.sleep(20);
-        //} catch (InterruptedException e1) {
-        //    e1.printStackTrace();
-        //}
-        //Holder h = new Holder();
-        //h.start();
+        test = true;
+        Player.pos.setMapX(Player.pos.getMapX() + 4);
+        try {
+            TimeUnit.MILLISECONDS.sleep(20);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+        Holder h = new Holder();
+        h.start();
 
 
     }

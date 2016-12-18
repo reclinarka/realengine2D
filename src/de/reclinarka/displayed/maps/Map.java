@@ -76,6 +76,14 @@ public class Map implements translator {
         return ScreenY;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
     //Setter
     public void setScreenX(int screenX) {
         ScreenX = screenX;

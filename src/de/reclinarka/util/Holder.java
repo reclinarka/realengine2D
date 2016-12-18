@@ -1,6 +1,7 @@
 package de.reclinarka.util;
 
 import de.reclinarka.displayed.maps.Map;
+import de.reclinarka.player.Player;
 import de.reclinarka.processing.GraphicsHandler;
 
 import java.util.concurrent.TimeUnit;
@@ -15,7 +16,7 @@ public class Holder extends Thread{
 
     public void run(){
         while(OnClick.test){
-            GraphicsHandler.Maps.get(0).setScreenX(GraphicsHandler.Maps.get(0).getScreenX() + 10);
+            Player.pos.setMapX(Player.pos.getMapX() + 4);
             try {
                 TimeUnit.MILLISECONDS.sleep(20);
             } catch (InterruptedException e) {

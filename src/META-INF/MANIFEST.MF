@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: de.reclinarka.Main
+Main-Class: de.reclinarka.Main
+

@@ -51,7 +51,7 @@ public class GraphicsHandler extends Thread{
 
         while (true) {
             try {
-                TimeUnit.MILLISECONDS.sleep(1000/20);
+                TimeUnit.MILLISECONDS.sleep(1000/60);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
