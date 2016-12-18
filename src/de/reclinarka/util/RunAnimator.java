@@ -26,7 +26,7 @@ public class RunAnimator extends Thread{
     public void run(){
         while(true){
             count = 1;
-            //right = true;
+            right = true;
             while(right){
                 if(count > 2){
                     count = 1;

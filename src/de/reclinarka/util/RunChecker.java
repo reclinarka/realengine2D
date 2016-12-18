@@ -14,19 +14,19 @@ public class RunChecker extends Thread{
     private int tempx;
 
     public RunChecker(){
-        tempx = pos.getMapX();
+        tempx = Player.pos.getMapX();
     }
 
     public void run(){
         RunAnimator run = new RunAnimator();
         run.start();
         while(true) {
-            if (tempx < pos.getMapX()) {
+            if (tempx < Player.pos.getMapX()) {
                 run.right = true;
             } else {
                 run.right = false;
             }
-            tempx = pos.getMapX();
+            tempx = Player.pos.getMapX();
             try {
                 TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException e) {
