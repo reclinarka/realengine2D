@@ -23,6 +23,8 @@ import static de.reclinarka.processing.GraphicsHandler.count;
 
 public class Main extends Thread{
 
+    public static int zoom = 3;
+
     public static void main(String[] args) {
         Player P1 = new Player(50,500);
         GraphicsHandler.Content.add(P1);
@@ -30,7 +32,7 @@ public class Main extends Thread{
         Maps.add(new Map());
         GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", ((float) 0.333), 0, -800));
         for(int i = 0; i<200; i++){
-            GraphicsHandler.Content.add(new Brick( 16 * count ,(int) (Math.random()*801)));
+            GraphicsHandler.Content.add(new Brick( (16 *zoom )* count ,(int) (Math.random()*801)));
             count++;
         }
         graphicsHandler.start();

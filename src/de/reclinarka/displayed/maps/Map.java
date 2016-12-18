@@ -46,8 +46,8 @@ public class Map implements translator {
     }
 
     public void AlignToPlayer(int width, int height){
-        int ScreenX = ( Player.pos.getX() - width/2 );
-        int ScreenY = ( Player.pos.getY() - height/2 );
+        int ScreenX = ( Player.pos.getMapX() - width/2 );
+        int ScreenY = ( Player.pos.getMapY() - height/2 );
 
         if(ScreenX < 0 ){
             this.ScreenX = 0;

@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import static de.reclinarka.Main.zoom;
+
 public class Block implements Drawable {
 
     public Block(int mapX, int mapY){
@@ -83,7 +85,7 @@ public class Block implements Drawable {
 
     @Override
     public void draw(Graphics g){
-        g.drawImage(texture,pos.getX(),pos.getY(),width,height,null);
+        g.drawImage(texture,pos.getX(),pos.getY(),width*zoom,height*zoom,null);
     }
 
 
