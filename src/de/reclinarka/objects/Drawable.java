@@ -10,6 +10,6 @@ public interface Drawable {
 
     Coordinate getPos();
 
-    int getWidth();
+    //int getWidth();
 
 }

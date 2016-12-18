@@ -65,14 +65,14 @@ public class GraphicsHandler extends Thread{
         }
     }
 
-    private static void mover(Container e, Drawable f){
-        if(f.getPos().getX() > e.getWidth())
-            f.getPos().setX(0-f.getWidth());
-        f.getPos().setX(f.getPos().getX() + 2);
-        if(f.getPos().getY() > e.getHeight())
-            f.getPos().setY(0-f.getWidth());
-        f.getPos().setY(f.getPos().getX() + 2);
-    }
+    //private static void mover(Container e, Drawable f){
+    //    if(f.getPos().getX() > e.getWidth())
+    //        f.getPos().setX(0-f.getWidth());
+    //    f.getPos().setX(f.getPos().getX() + 2);
+    //    if(f.getPos().getY() > e.getHeight())
+    //        f.getPos().setY(0-f.getWidth());
+    //    f.getPos().setY(f.getPos().getX() + 2);
+    //}
 
 
 

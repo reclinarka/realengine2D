@@ -25,6 +25,7 @@ public class Main extends Thread{
 
     public static void main(String[] args) {
         Player P1 = new Player(50,500);
+        GraphicsHandler.Content.add(P1);
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         Maps.add(new Map());
         GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", ((float) 0.333), 0, -800));
@@ -48,13 +49,13 @@ public class Main extends Thread{
 
     }
 
-    private static void mover(JPanel e, Drawable f){
-        if(f.getPos().getX() > e.getWidth())
-            f.getPos().setX(0-f.getWidth());
-        f.getPos().setX(f.getPos().getX() + 2);
-        if(f.getPos().getY() > e.getHeight())
-            f.getPos().setY(0-f.getWidth());
-        f.getPos().setY(f.getPos().getX() + 2);
-    }
+   // private static void mover(JPanel e, Drawable f){
+   //     if(f.getPos().getX() > e.getWidth())
+   //         f.getPos().setX(0-f.getWidth());
+   //     f.getPos().setX(f.getPos().getX() + 2);
+   //     if(f.getPos().getY() > e.getHeight())
+   //         f.getPos().setY(0-f.getWidth());
+   //     f.getPos().setY(f.getPos().getX() + 2);
+   // }
 
 }
