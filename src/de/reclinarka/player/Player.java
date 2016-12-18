@@ -1,9 +1,12 @@
 package de.reclinarka.player;
 
+import de.reclinarka.displayed.maps.Map;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.Hitbox;
 import de.reclinarka.processing.GraphicsHandler;
+import de.reclinarka.util.RunAnimator;
+import de.reclinarka.util.RunChecker;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -19,6 +22,10 @@ import static de.reclinarka.Main.zoom;
  */
 public class Player extends Thread implements Drawable{
 
+
+
+
+
     private int width = 16;
 
     private int height = 32;
@@ -26,7 +33,13 @@ public class Player extends Thread implements Drawable{
     private int sizeModifier = 2;
 
     public void run(){
+
+        RunChecker checker = new RunChecker();
+        checker.start();
+
         while (true){
+
+
 
             if (pos.getMapX() + (this.width * this.sizeModifier * zoom) > GraphicsHandler.Maps.get(0).getWidth()){
                 pos.setMapX(GraphicsHandler.Maps.get(0).getWidth() - (this.width * this.sizeModifier * zoom));
@@ -35,7 +48,7 @@ public class Player extends Thread implements Drawable{
             }
 
             try {
-                TimeUnit.MILLISECONDS.sleep(10);
+                TimeUnit.MILLISECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -54,9 +67,20 @@ public class Player extends Thread implements Drawable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    private BufferedImage texture;
+    public void setMapX(int mapX){
+        pos.setMapX(mapX);
+        hitbox.setMapX(mapX);
+    }
+
+    public void setMapY(int mapY){
+        pos.setMapY(mapY);
+        hitbox.setMapY(mapY);
+    }
+
+    public static BufferedImage texture;
 
     protected static Hitbox hitbox;
 

@@ -16,8 +16,32 @@ import java.util.ArrayList;
  */
 public class Map implements translator {
 
-    public Map(){
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void setPlayer(){
+        Player P1 = new Player(20, height/2);
+        GraphicsHandler.Content.add(P1);
+        P1.start();
+    }
+
+    private String ID;
+
+    public Map(String ID){
+        this.ID = ID;
+        setPlayer();
     }
 
     protected int ScreenX = 0;
@@ -27,6 +51,8 @@ public class Map implements translator {
     protected int width = 8000;
 
     protected int height = 2000;
+
+
 
     public void translate(ArrayList<Drawable> inArray){
         inArray.forEach((f) -> change(f));
@@ -82,6 +108,10 @@ public class Map implements translator {
 
     public int getWidth() {
         return width;
+    }
+
+    public String getID() {
+        return ID;
     }
 
     //Setter
