@@ -29,7 +29,7 @@ public class OnClick implements MouseListener, MouseMotionListener{
         //    count = 0;
         //    lvl++;
         //}
-        GraphicsHandler.Content.add(new Brick(16*GraphicsHandler.count, (int) (Math.random()*801) , 16*GraphicsHandler.count, (int) (Math.random()*801) ));
+        GraphicsHandler.Content.add(new Brick( 16*GraphicsHandler.count , (int) (Math.random()*801) ));
         GraphicsHandler.count++;
 
     }

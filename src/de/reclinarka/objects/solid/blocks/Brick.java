@@ -8,8 +8,8 @@ import de.reclinarka.objects.solid.Block;
  * Created by reclinarka on 14.12.2016.
  */
 public class Brick extends Block {
-    public Brick(int x, int y, int mapX, int mapY){
-        setPos(new Coordinate(x,y,mapX,mapY));
+    public Brick(int mapX, int mapY){
+        setPos(new Coordinate(mapX,mapY));
         setHitbox(new Hitbox(mapX,mapY,getWidth(),getHeight()));
         setBlock_ID( "Brick");
         update();

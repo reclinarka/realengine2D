@@ -6,6 +6,7 @@ import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.background.BackGround;
 import de.reclinarka.objects.solid.Block;
 import de.reclinarka.objects.solid.blocks.Brick;
+import de.reclinarka.player.Player;
 import de.reclinarka.processing.GraphicsHandler;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
@@ -17,18 +18,18 @@ import java.beans.EventHandler;
 import java.util.EventListener;
 import java.util.concurrent.TimeUnit;
 
+import static de.reclinarka.processing.GraphicsHandler.Maps;
 import static de.reclinarka.processing.GraphicsHandler.count;
 
 public class Main extends Thread{
 
     public static void main(String[] args) {
-
-
+        Player P1 = new Player(50,500);
         GraphicsHandler graphicsHandler = new GraphicsHandler();
-        GraphicsHandler.Maps.add(new Map());
+        Maps.add(new Map());
         GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", ((float) 0.333), 0, -800));
         for(int i = 0; i<200; i++){
-            GraphicsHandler.Content.add(new Brick(16*count ,(int) (Math.random()*801) ,16*count ,(int) (Math.random()*801)));
+            GraphicsHandler.Content.add(new Brick( 16 * count ,(int) (Math.random()*801)));
             count++;
         }
         graphicsHandler.start();
@@ -42,6 +43,7 @@ public class Main extends Thread{
             }
 
             System.out.println("reached");
+            System.out.println(count);
         }
 
     }

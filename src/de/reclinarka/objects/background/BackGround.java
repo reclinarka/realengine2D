@@ -19,7 +19,7 @@ public class BackGround {
             e.printStackTrace();
         }
         this.modifier = modifier;
-        Pos = new Coordinate(0,0,mapX,mapY);
+        Pos = new Coordinate(mapX,mapY);
     }
 
     private BufferedImage texture;

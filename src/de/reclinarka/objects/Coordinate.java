@@ -5,9 +5,8 @@ package de.reclinarka.objects;
  */
 public class Coordinate {
 
-    public Coordinate(int x, int y, int mapX, int mapY){
-        this.x = x;
-        this.y = y;
+    public Coordinate( int mapX, int mapY){
+
         this.mapX = mapX;
         this.mapY = mapY;
     }

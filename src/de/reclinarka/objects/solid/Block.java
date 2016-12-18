@@ -11,8 +11,8 @@ import java.io.IOException;
 
 public class Block implements Drawable {
 
-    public Block(int x, int y, int mapX, int mapY){
-        pos = new Coordinate(x,y,mapX,mapY);
+    public Block(int mapX, int mapY){
+        pos = new Coordinate(mapX,mapY);
         hitbox = new Hitbox(mapX,mapY,width,height);
         Block_ID = "default";
         update();

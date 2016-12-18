@@ -55,7 +55,7 @@ public class GraphicsHandler extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            Maps.get(0).AlignToPlayer(frame.getWidth(),frame.getHeight());
             ContentOut = (ArrayList<Drawable>) Content.clone();
             Maps.get(0).translate(ContentOut);
             BackGrounds.get(0).transform(BackGrounds.get(0).getPos(),Maps.get(0).getScreenX(),Maps.get(0).getScreenY());
