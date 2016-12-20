@@ -4,6 +4,8 @@ package de.reclinarka;
 import de.reclinarka.displayed.maps.Map;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.background.BackGround;
+import de.reclinarka.objects.background.layer.Back;
+import de.reclinarka.objects.background.layer.Front;
 import de.reclinarka.objects.solid.Block;
 import de.reclinarka.objects.solid.blocks.Brick;
 import de.reclinarka.player.Player;
@@ -31,7 +33,8 @@ public class Main extends Thread{
 
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         Maps.add(new Map("test"));
-        GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", ((float) 0.333), 0, -800));
+        GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", new Back(), 0, -800));
+        GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/cloud_1.png", new Front(), 0, -800));
         for(int i = 0; i<200; i++){
             GraphicsHandler.Content.add(new Brick( (16 *zoom )* count , ( GraphicsHandler.Maps.get(0).getHeight() / 2 ) +(32*6)));
             count++;

@@ -25,12 +25,10 @@ public class RunAnimator extends Thread{
 
     public void run(){
         while(true){
-            count = 1;
-            right = true;
+            count = 0;
+            //right = true;
             while(right){
-                if(count > 2){
-                    count = 1;
-                }
+                count = count % 2;
 
                 try {
                     Player.texture = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/resources/MoveRight_" + count + ".png"));
@@ -39,16 +37,20 @@ public class RunAnimator extends Thread{
                 }
 
                 try {
-                    TimeUnit.MILLISECONDS.sleep(500);
+                    TimeUnit.MILLISECONDS.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 count++;
 
             }
+            try {
+                Player.texture = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/resources/Player.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             count = 1;
-
-
         }
 
     }

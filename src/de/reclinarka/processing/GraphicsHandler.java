@@ -34,7 +34,7 @@ public class GraphicsHandler extends Thread{
     public void run(){
 
         BufferedImage img = null;
-        ArrayList<Drawable> Temp;
+
         try {
             img = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/game.png"));
         } catch (IOException e) {
@@ -58,7 +58,7 @@ public class GraphicsHandler extends Thread{
             Maps.get(0).AlignToPlayer(frame.getWidth(),frame.getHeight());
             ContentOut = (ArrayList<Drawable>) Content.clone();
             Maps.get(0).translate(ContentOut);
-            BackGrounds.get(0).transform(BackGrounds.get(0).getPos(),Maps.get(0).getScreenX(),Maps.get(0).getScreenY());
+            BackGrounds.forEach( (f) ->  f.transform(f.getPos(),Maps.get(0).getScreenX(),Maps.get(0).getScreenY()) ) ;
             ContentOut.sort(new xCpmparator());
 
             frame.repaint();

@@ -28,7 +28,7 @@ public class RunChecker extends Thread{
             }
             tempx = Player.pos.getMapX();
             try {
-                TimeUnit.MILLISECONDS.sleep(500);
+                TimeUnit.MILLISECONDS.sleep(40);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

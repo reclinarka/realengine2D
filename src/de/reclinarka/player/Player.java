@@ -1,11 +1,9 @@
 package de.reclinarka.player;
 
-import de.reclinarka.displayed.maps.Map;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.Hitbox;
 import de.reclinarka.processing.GraphicsHandler;
-import de.reclinarka.util.RunAnimator;
 import de.reclinarka.util.RunChecker;
 
 import javax.imageio.ImageIO;

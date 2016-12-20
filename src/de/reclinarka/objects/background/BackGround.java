@@ -2,8 +2,11 @@ package de.reclinarka.objects.background;
 
 import de.reclinarka.displayed.maps.Map;
 import de.reclinarka.objects.Coordinate;
+import de.reclinarka.objects.background.layer.Layer;
+import de.reclinarka.processing.GraphicsHandler;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -12,25 +15,25 @@ import java.io.IOException;
  */
 public class BackGround {
 
-    public BackGround(String path, float modifier, int mapX, int mapY){
+    public BackGround(String path, Layer layer, int mapX, int mapY){
         try {
             texture = ImageIO.read(getClass().getResourceAsStream(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.modifier = modifier;
+        this.layer = layer;
         Pos = new Coordinate(mapX,mapY);
     }
 
-    private BufferedImage texture;
+    private Layer layer;
 
-    private float modifier;
+    private BufferedImage texture;
 
     private Coordinate Pos;
 
     public void transform(Coordinate e, int ScreenX, int ScreenY){
-        e.setX( (int) (e.getMapX() - (ScreenX * modifier) ) );
-        e.setY( (int) (e.getMapY() - (ScreenY * modifier) ) );
+        e.setX( (int) (e.getMapX() - (ScreenX * layer.getModifier()) ) );
+        e.setY( (int) (e.getMapY() - (ScreenY * layer.getModifier()) ) );
     }
 
     //Getter
@@ -38,12 +41,12 @@ public class BackGround {
         return texture;
     }
 
-    public float getModifier() {
-        return modifier;
-    }
-
     public Coordinate getPos() {
         return Pos;
+    }
+
+    public Layer getLayer() {
+        return layer;
     }
 
     //Setter
@@ -51,11 +54,13 @@ public class BackGround {
         this.texture = texture;
     }
 
-    public void setModifier(float modifier) {
-        this.modifier = modifier;
-    }
-
     public void setPos(Coordinate pos) {
         Pos = pos;
+    }
+
+
+
+    public void draw(Graphics g){
+        g.drawImage(getTexture() ,getPos().getX() ,getPos().getY(), getTexture().getWidth()/2 , getTexture().getHeight()/2 ,null);
     }
 }

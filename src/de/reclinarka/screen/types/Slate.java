@@ -22,7 +22,8 @@ public class Slate extends JPanel {
     private ArrayList<Drawable> content;
 
     protected void paintComponent(Graphics g) {
-        g.drawImage(GraphicsHandler.BackGrounds.get(0).getTexture() ,GraphicsHandler.BackGrounds.get(0).getPos().getX() ,GraphicsHandler.BackGrounds.get(0).getPos().getY(), GraphicsHandler.BackGrounds.get(0).getTexture().getWidth()/2 , GraphicsHandler.BackGrounds.get(0).getTexture().getHeight()/2 ,null);
+
+        GraphicsHandler.BackGrounds.forEach((f) -> f.draw(g));
 
         content.forEach((f) -> f.draw(g));
 
