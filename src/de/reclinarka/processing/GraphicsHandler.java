@@ -5,6 +5,7 @@ import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.background.BackGround;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
+import de.reclinarka.util.BgCompare;
 import de.reclinarka.util.OnClick;
 import de.reclinarka.util.xCpmparator;
 
@@ -13,6 +14,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -44,7 +46,7 @@ public class GraphicsHandler extends Thread{
         ContentOut = (ArrayList<Drawable>) Content.clone();
         ContentOut.sort(new xCpmparator());
 
-        Slate game = new Slate(ContentOut);
+        Slate game = new Slate(ContentOut, BackGrounds);
         Window frame = new Window(800,800,"Game",game);
         frame.setIconImage(img);
         frame.getContentPane().addMouseListener(new OnClick());
@@ -59,6 +61,7 @@ public class GraphicsHandler extends Thread{
             ContentOut = (ArrayList<Drawable>) Content.clone();
             Maps.get(0).translate(ContentOut);
             BackGrounds.forEach( (f) ->  f.transform(f.getPos(),Maps.get(0).getScreenX(),Maps.get(0).getScreenY()) ) ;
+            BackGrounds.sort(Comparator.comparing(BackGround::getModifier));
             ContentOut.sort(new xCpmparator());
 
             frame.repaint();

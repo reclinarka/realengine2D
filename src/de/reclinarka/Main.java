@@ -34,13 +34,14 @@ public class Main extends Thread{
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         Maps.add(new Map("test"));
         GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/BG2.png", new Back(), 0, -800));
-        GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/cloud_1.png", new Front(), 0, -800));
         for(int i = 0; i<200; i++){
             GraphicsHandler.Content.add(new Brick( (16 *zoom )* count , ( GraphicsHandler.Maps.get(0).getHeight() / 2 ) +(32*6)));
             count++;
         }
 
         graphicsHandler.start();
+        GraphicsHandler.BackGrounds.add(new BackGround("/de/reclinarka/resources/cloud_1.png", new Front(), 60, 600));
+
 
 
         while (true) {

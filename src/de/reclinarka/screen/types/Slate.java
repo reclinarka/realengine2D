@@ -1,6 +1,7 @@
 package de.reclinarka.screen.types;
 
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.objects.background.BackGround;
 import de.reclinarka.processing.GraphicsHandler;
 
 import javax.swing.*;
@@ -14,16 +15,19 @@ import java.util.List;
  */
 public class Slate extends JPanel {
 
-    public Slate(ArrayList<Drawable> e) {
+    public Slate(ArrayList<Drawable> e, ArrayList<BackGround> f) {
         content = e;
+        bg = f;
         repaint();
     }
+
+    private ArrayList<BackGround> bg;
 
     private ArrayList<Drawable> content;
 
     protected void paintComponent(Graphics g) {
 
-        GraphicsHandler.BackGrounds.forEach((f) -> f.draw(g));
+        bg.forEach((f) -> f.draw(g));
 
         content.forEach((f) -> f.draw(g));
 

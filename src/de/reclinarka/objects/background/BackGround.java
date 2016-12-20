@@ -32,8 +32,12 @@ public class BackGround {
     private Coordinate Pos;
 
     public void transform(Coordinate e, int ScreenX, int ScreenY){
-        e.setX( (int) (e.getMapX() - (ScreenX * layer.getModifier()) ) );
-        e.setY( (int) (e.getMapY() - (ScreenY * layer.getModifier()) ) );
+        if( ((int) (e.getMapX() - (ScreenX * layer.getModifier()))) < 0 - (texture.getWidth()/2) ) {
+            e.setMapX(e.getMapX() + ScreenX + ((texture.getWidth()/2)/2));
+        }
+        e.setX((int) (e.getMapX() - (ScreenX * layer.getModifier())));
+        e.setY((int) (e.getMapY() - (ScreenY * layer.getModifier())));
+
     }
 
     //Getter
@@ -49,6 +53,9 @@ public class BackGround {
         return layer;
     }
 
+    public float getModifier(){
+        return layer.getModifier();
+    }
     //Setter
     public void setTexture(BufferedImage texture) {
         this.texture = texture;
