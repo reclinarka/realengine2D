@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.concurrent.TimeUnit;
 
+import static de.reclinarka.Main.zoom;
 import static de.reclinarka.processing.GraphicsHandler.Maps;
 import static de.reclinarka.processing.GraphicsHandler.count;
 
@@ -24,6 +25,13 @@ public class OnClick implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
+        System.out.println(e.getX() + "  " + e.getY());
+        System.out.println( (e.getX() + GraphicsHandler.Maps.get(0).getScreenX()) + "  "  + (e.getY() + GraphicsHandler.Maps.get(0).getScreenY()) );
+        System.out.println( GraphicsHandler.Maps.get(0).getScreenX() + "  " + GraphicsHandler.Maps.get(0).getScreenY());
+
+
+        GraphicsHandler.ContentOut.add(new Brick((e.getX() * zoom) + GraphicsHandler.Maps.get(0).getScreenX(), (e.getY() * zoom) + GraphicsHandler.Maps.get(0).getScreenY()));
         //Maps.get(0).setScreenX(Maps.get(0).getScreenX()+4);
 
         //if(16*count>800-16){
@@ -40,15 +48,15 @@ public class OnClick implements MouseListener, MouseMotionListener{
 
 
 
-        test = true;
-        Player.pos.setMapX(Player.pos.getMapX() + 4);
-        try {
-            TimeUnit.MILLISECONDS.sleep(20);
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
-        Holder h = new Holder();
-        h.start();
+        //test = true;
+        //Player.pos.setMapX(Player.pos.getMapX() + 4);
+        //try {
+        //    TimeUnit.MILLISECONDS.sleep(20);
+        //} catch (InterruptedException e1) {
+        //    e1.printStackTrace();
+        //}
+        //Holder h = new Holder();
+        //h.start();
 
 
     }

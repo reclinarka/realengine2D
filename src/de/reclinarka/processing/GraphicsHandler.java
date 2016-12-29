@@ -27,6 +27,8 @@ public class GraphicsHandler extends Thread{
 
     public static ArrayList<Drawable> Content = new ArrayList<Drawable>();
 
+
+
     public static ArrayList<Map> Maps = new ArrayList<Map>();
 
     public static ArrayList<BackGround> BackGrounds = new ArrayList<BackGround>();
@@ -59,10 +61,10 @@ public class GraphicsHandler extends Thread{
             }
             Maps.get(0).AlignToPlayer(frame.getWidth(),frame.getHeight());
             ContentOut = (ArrayList<Drawable>) Content.clone();
-            Maps.get(0).translate(ContentOut);
+            Maps.get(0).translate(Content);
             BackGrounds.forEach( (f) ->  f.transform(f.getPos(),Maps.get(0).getScreenX(),Maps.get(0).getScreenY()) ) ;
             BackGrounds.sort(Comparator.comparing(BackGround::getModifier));
-            ContentOut.sort(new xCpmparator());
+            Content.sort(new xCpmparator());
 
             frame.repaint();
         }
