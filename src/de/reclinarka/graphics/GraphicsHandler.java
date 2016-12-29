@@ -3,6 +3,7 @@ package de.reclinarka.graphics;
 import de.reclinarka.maps.Map;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
+import javafx.scene.media.MediaPlayer;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -12,13 +13,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class GraphicsHandler extends Thread{
 
-    private int selected;
+    private int selected = 0;
 
     private ArrayList<Map> Maps = new ArrayList<Map>();
 
     @Override
     public void run() {
         new Window(800,800,"game", new Slate(getCurrentMap().getContent()));
+        MediaPlayer mp = new MediaPlayer(getCurrentMap().getSound());
+        mp.play();
 
         while (true){
 
