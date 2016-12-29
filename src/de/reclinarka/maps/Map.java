@@ -11,13 +11,12 @@ import java.util.ArrayList;
 public class Map {
 
     public Map(){
-        Content = new ArrayList<Drawable>();
     }
 
-    protected ArrayList<Drawable> Content;
+    private ArrayList<Drawable> Content = new ArrayList<Drawable>();
     private int ScreenX;
     private int ScreenY;
-    private ArrayList<Player>
+    private ArrayList<Player> Players = new ArrayList<Player>();
 
     public ArrayList<Drawable> getContent() {
         return Content;
