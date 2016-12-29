@@ -1,5 +1,7 @@
 package de.reclinarka.screen;
 
+import de.reclinarka.util.OnClick;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,7 +14,7 @@ public class Window extends JFrame {
         getContentPane().setPreferredSize(new Dimension(width, height));
         setResizable(true);
         setTitle(windowTitle);
-
+        this.getContentPane().addMouseListener(new OnClick());
         init(content);
     }
 
