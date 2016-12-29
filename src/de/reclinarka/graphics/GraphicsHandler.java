@@ -13,15 +13,19 @@ import java.util.concurrent.TimeUnit;
  */
 public class GraphicsHandler extends Thread{
 
+    private GraphicsHandler self;
+
     private int selected = 0;
 
     private ArrayList<Map> Maps = new ArrayList<Map>();
 
     @Override
     public void run() {
-        new Window(800,800,"game", new Slate(getCurrentMap().getContent()));
+        new Window(800,800,"game", new Slate(getCurrentMap().getContent()),self);
         MediaPlayer mp = new MediaPlayer(getCurrentMap().getSound());
+
         mp.play();
+        mp.setVolume(0.1);
 
         while (true){
 
@@ -39,6 +43,10 @@ public class GraphicsHandler extends Thread{
 
     public Map getCurrentMap(){
         return Maps.get(selected);
+    }
+
+    public void setSelf(GraphicsHandler self) {
+        this.self = self;
     }
 
     public ArrayList<Map> getMaps() {

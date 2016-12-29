@@ -19,8 +19,10 @@ public class Main extends Thread{
     public static void main(String[] args) {
         Threader t = new Threader();
         t.start();
+        System.out.println("MY_NAME".length());
 
         GraphicsHandler graphicsHandler = new GraphicsHandler();
+        graphicsHandler.setSelf(graphicsHandler);
         graphicsHandler.getMaps().add(new Map());
         graphicsHandler.start();
 

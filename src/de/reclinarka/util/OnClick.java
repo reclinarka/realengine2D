@@ -1,5 +1,6 @@
 package de.reclinarka.util;
 
+import de.reclinarka.graphics.GraphicsHandler;
 import de.reclinarka.objects.solid.blocks.Brick;
 
 import java.awt.event.MouseEvent;
@@ -13,13 +14,17 @@ import java.awt.event.MouseMotionListener;
 public class OnClick implements MouseListener, MouseMotionListener{
 
     public static boolean test=false;
-    private static int lvl = 0;
 
+    private GraphicsHandler graphicsHandler;
+    public OnClick(GraphicsHandler graphicsHandler){
+        this.graphicsHandler = graphicsHandler;
+    }
 
 
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println(e.getX() + "  " + e.getY() );
+
 
 
     }
