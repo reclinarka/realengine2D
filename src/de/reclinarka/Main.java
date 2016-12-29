@@ -12,8 +12,10 @@ public class Main extends Thread{
 
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         graphicsHandler.getMaps().add(new Map());
+        graphicsHandler.start();
 
-        new Window(800,800,"game", new Slate(graphicsHandler.getCurrentMap().getContent()));
+
+
     }
 
 

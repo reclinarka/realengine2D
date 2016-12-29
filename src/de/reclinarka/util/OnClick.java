@@ -19,7 +19,7 @@ public class OnClick implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        System.out.println(e.getX() + "  " + e.getY() );
 
 
     }
