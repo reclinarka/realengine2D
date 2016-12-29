@@ -1,21 +1,19 @@
 package de.reclinarka;
 
 
+import de.reclinarka.graphics.GraphicsHandler;
+import de.reclinarka.maps.Map;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
 
 public class Main extends Thread{
 
     public static void main(String[] args) {
-        new Window(800,800,"game", new Slate())
 
+        GraphicsHandler graphicsHandler = new GraphicsHandler();
+        graphicsHandler.getMaps().add(new Map());
 
-
-
-
-
-
-
+        new Window(800,800,"game", new Slate(graphicsHandler.getCurrentMap().getContent()));
     }
 
 

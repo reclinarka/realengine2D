@@ -22,6 +22,14 @@ public class GraphicsHandler extends Thread{
         return Maps.get(selected);
     }
 
+    public ArrayList<Map> getMaps() {
+        return Maps;
+    }
+
+    public int getSelected() {
+        return selected;
+    }
+
     public void select(int selected){
         this.selected = selected;
     }

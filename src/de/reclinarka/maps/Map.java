@@ -17,6 +17,7 @@ public class Map {
     private int ScreenX;
     private int ScreenY;
 
-
-
+    public ArrayList<Drawable> getContent() {
+        return Content;
+    }
 }
