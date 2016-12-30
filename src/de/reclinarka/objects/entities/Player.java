@@ -37,8 +37,8 @@ public class Player implements Drawable {
     private Coordinate pos;
 
     @Override
-    public void draw(Graphics g) {
-        g.drawImage( texture,pos.getX(), pos.getY(), width, height,null);
+    public void draw(Graphics g, int zoom) {
+        g.drawImage( texture,pos.getX(), pos.getY(), width * zoom, height * zoom,null);
     }
 
     @Override

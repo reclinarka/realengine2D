@@ -83,8 +83,8 @@ public class Block implements Drawable {
     }
 
     @Override
-    public void draw(Graphics g){
-        g.drawImage(texture,pos.getX(),pos.getY(),width,height,null);
+    public void draw(Graphics g, int zoom){
+        g.drawImage(texture, pos.getX(), pos.getY(), width * zoom, height * zoom,null);
     }
 
 

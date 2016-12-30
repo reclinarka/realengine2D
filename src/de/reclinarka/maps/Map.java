@@ -1,6 +1,7 @@
 package de.reclinarka.maps;
 
 import de.reclinarka.Main;
+import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.entities.Player;
 import javafx.scene.media.Media;
@@ -26,9 +27,20 @@ public class Map {
     }
     private Media Sound;
     private ArrayList<Drawable> Content = new ArrayList<Drawable>();
-    private int ScreenX;
-    private int ScreenY;
+    private int ScreenX = 0;
+    private int ScreenY = 0;
     private ArrayList<Player> Players = new ArrayList<Player>();
+
+    public void alignObjects(int zoom){
+        Content.forEach( (f) -> alignObject(f, zoom) );
+        Players.forEach( (f) -> alignObject(f, zoom) );
+    }
+
+    private void alignObject(Drawable obj, int zoom){
+        Coordinate pos = obj.getPos();
+        pos.setX( (pos.getMapX() - ScreenX) * zoom );
+        pos.setY( (pos.getMapY() - ScreenY) * zoom );
+    }
 
     public Media getSound() {
         return Sound;

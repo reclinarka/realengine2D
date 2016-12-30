@@ -16,6 +16,7 @@ public class OnClick implements MouseListener, MouseMotionListener{
     public static boolean test=false;
 
     private GraphicsHandler graphicsHandler;
+
     public OnClick(GraphicsHandler graphicsHandler){
         this.graphicsHandler = graphicsHandler;
     }
@@ -24,9 +25,8 @@ public class OnClick implements MouseListener, MouseMotionListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println(e.getX() + "  " + e.getY() );
-
-
-
+        //graphicsHandler.getCurrentMap().getContent().add(new Brick(120,120));
+        //graphicsHandler.setZoom(graphicsHandler.getZoom() + 1);
     }
 
     @Override

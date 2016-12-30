@@ -10,20 +10,33 @@ import java.awt.*;
  */
 public class TextField implements Drawable{
 
-    public TextField(String[] content){
+    public TextField(String[] content, int mapX, int mapY, float speed, int size, int decay){
         this.content = content;
-        lines = content.length - 1;
-        drawer = new TextDrawer(0);
+        pos = new Coordinate(mapX,mapY);
+        steps = (int) (speed * 120);
+        drawer = new TextDrawer(pos,steps,decay);
+        this.size = size;
     }
-    private int speed;
+
+    private int size;
+    private int steps;
     private TextDrawer drawer;
     private String[] content;
-    private int lines;
     private Coordinate pos;
 
+
     @Override
-    public void draw(Graphics g) {
-        drawer.draw(content);
+    public void draw(Graphics g, int zoom) {
+
+            g.setFont(g.getFont().deriveFont((float) (size * zoom) ));
+            drawer.draw(g, content, zoom, size);
+
+
+    }
+
+    public void setSteps(int steps) {
+        this.steps = steps;
+
     }
 
     @Override

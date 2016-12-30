@@ -13,6 +13,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class GraphicsHandler extends Thread{
 
+    private Window frame;
+
+    private int zoom = 3;
+
     private GraphicsHandler self;
 
     private int selected = 0;
@@ -21,15 +25,17 @@ public class GraphicsHandler extends Thread{
 
     @Override
     public void run() {
-        new Window(800,800,"game", new Slate(getCurrentMap().getContent()),self);
+        frame = new Window(800,800,"game", new Slate(self),self);
         MediaPlayer mp = new MediaPlayer(getCurrentMap().getSound());
 
         mp.play();
         mp.setVolume(0.1);
 
         while (true){
-
-
+            //if(zoom <= 0) zoom = 1;
+            //if (zoom >6) zoom = 1;
+            getCurrentMap().alignObjects(zoom);
+            frame.repaint();
 
             //Sets framerate
             try {
@@ -55,6 +61,14 @@ public class GraphicsHandler extends Thread{
 
     public int getSelected() {
         return selected;
+    }
+
+    public int getZoom() {
+        return zoom;
+    }
+
+    public void setZoom(int zoom) {
+        this.zoom = zoom;
     }
 
     public void select(int selected){
