@@ -31,7 +31,7 @@ public class Main extends Thread{
         graphicsHandler.start();
         graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("Sans",100,100,38 * modifier,32 * modifier));
         graphicsHandler.getCurrentMap().getContent().add(new TextField(
-               new String[] {"Hey        ","my name is","Sans.     ","Let's start!"},90,180, (float) 0.07, 10,60
+               new String[] {"Hey...     ","my name is","Sans.     ","Let's start!"},90,180, (float) 0.07, 10,60
         ));
 
 
