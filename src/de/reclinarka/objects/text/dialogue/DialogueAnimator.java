@@ -18,6 +18,7 @@ public class DialogueAnimator extends TextDrawer{
         setDecay(decay);
         this.marks = marks;
         this.graphicsHandler = graphicsHandler;
+        CorrespondingID = CorrespID;
     }
 
     private String CorrespondingID;
