@@ -3,6 +3,7 @@ package de.reclinarka.objects.solid;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.Hitbox;
+import de.reclinarka.objects.animation.Animation;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -80,6 +81,11 @@ public class Block implements Drawable {
 
     public void setBlock_ID(String block_ID) {
         Block_ID = block_ID;
+    }
+
+    @Override
+    public Animation getAnimation() {
+        return null;
     }
 
     @Override

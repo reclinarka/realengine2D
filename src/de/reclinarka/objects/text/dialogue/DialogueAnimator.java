@@ -32,7 +32,8 @@ public class DialogueAnimator extends TextDrawer{
             setCount(0);
             for(int i = 0; i < marks.length; i++){
                 if(getStepCount() == marks[i]){
-                    GetByID.getDrawableByID(graphicsHandler.getCurrentMap().getContent(),CorrespondingID);
+                    if(GetByID.getDrawableByID(graphicsHandler.getCurrentMap().getContent(), CorrespondingID) != null)
+                        GetByID.getDrawableByID(graphicsHandler.getCurrentMap().getContent(), CorrespondingID).getAnimation().next();
                 }
             }
         }

@@ -9,16 +9,15 @@ import java.util.ArrayList;
  */
 public class GetByID {
     public static Drawable getDrawableByID(ArrayList<Drawable> source, String ID) {
-        for(int i = 0; i < source.size(); i++ ){
-            if(containsID(source.get(i), ID)){
-                return source.get(i);
-            }
-        }
-        return null;
+        curr = null;
+        source.forEach( (f) -> containsID(f, ID) );
+        return curr;
     }
 
-    private static boolean containsID(Drawable input, String ID) {
-        if(input.getID().contentEquals(ID)) return true;
-        return false;
+    private static Drawable curr;
+
+    private static void containsID(Drawable input, String ID) {
+        if(input.getID().contentEquals(ID)) curr = input;
+
     }
 }

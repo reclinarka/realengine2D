@@ -2,6 +2,7 @@ package de.reclinarka.objects.entities;
 
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.objects.animation.Animation;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -37,6 +38,11 @@ public class Player implements Drawable {
     private Coordinate pos;
 
     private String ID;
+
+    @Override
+    public Animation getAnimation() {
+        return null;
+    }
 
     @Override
     public String getID() {

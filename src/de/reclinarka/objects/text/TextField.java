@@ -3,6 +3,7 @@ package de.reclinarka.objects.text;
 import de.reclinarka.graphics.GraphicsHandler;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.objects.animation.Animation;
 import de.reclinarka.objects.text.dialogue.DialogueAnimator;
 
 import java.awt.*;
@@ -55,6 +56,11 @@ public class TextField implements Drawable {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    @Override
+    public Animation getAnimation() {
+        return null;
     }
 
     @Override

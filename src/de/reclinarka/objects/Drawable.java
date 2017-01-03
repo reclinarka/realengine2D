@@ -1,5 +1,7 @@
 package de.reclinarka.objects;
 
+import de.reclinarka.objects.animation.Animation;
+
 import java.awt.*;
 
 /**
@@ -10,6 +12,7 @@ public interface Drawable {
 
     Coordinate getPos();
     String getID();
+    Animation getAnimation();
 
     //int getWidth();
 

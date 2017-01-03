@@ -47,6 +47,12 @@ public class Animation {
         return content;
     }
 
+    public void next(){
+        BufferedImage tmp = getContent().get(0);
+        getContent().remove(0);
+        getContent().add(tmp);
+    }
+
     public void draw(Graphics g, int width, int height, int x, int y){
         g.drawImage(getCurrentSprite(),x,y,width,height,null);
         count++;

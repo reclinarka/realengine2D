@@ -37,7 +37,8 @@ public class Main extends Thread{
             e.printStackTrace();
         }
         graphicsHandler.getCurrentMap().getContent().add(new TextField(
-               new String[] {"Hey...     ","my name is","Sans.     ","Let's start!"},90,180, (float) 0.07, 10,60, "sans_dialog"
+               new String[] {"Hey...     ","my name is","Sans.     ","Let's start!"},90,180, (float) 0.07, 10,60, "sans_dialog",
+                "sans", new int[] {15,20}, graphicsHandler
         ));
 
 
