@@ -60,9 +60,14 @@ public class ImgDisplay implements Drawable{
     private Coordinate pos;
 
     @Override
+    public String getID() {
+        return ID;
+    }
+
+    @Override
     public void draw(Graphics g, int zoom) {
         if(animated){
-            animation.draw(g, pos.getX() , pos.getY() , width * zoom, height * zoom);
+            animation.draw(g, width * zoom , height * zoom , pos.getX(), pos.getY());
         }
         g.drawImage(texture, pos.getX() , pos.getY() , width * zoom, height * zoom,null);
     }
