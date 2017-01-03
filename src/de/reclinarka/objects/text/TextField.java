@@ -1,7 +1,9 @@
 package de.reclinarka.objects.text;
 
+import de.reclinarka.graphics.GraphicsHandler;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.objects.text.dialogue.DialogueAnimator;
 
 import java.awt.*;
 
@@ -19,8 +21,13 @@ public class TextField implements Drawable {
         this.ID = ID;
     }
 
-    public TextField() {
-
+    public TextField(String[] content, int mapX, int mapY, float speed, int size, int decay, String ID, String CorrespID, int[] marks, GraphicsHandler graphicsHandler) {
+        this.content = content;
+        pos = new Coordinate(mapX, mapY);
+        steps = (int) (speed * 120);
+        drawer = new DialogueAnimator(pos, steps, decay, marks, CorrespID, graphicsHandler);
+        this.size = size;
+        this.ID = ID;
     }
 
     private int size;
@@ -30,6 +37,25 @@ public class TextField implements Drawable {
     private Coordinate pos;
     private String ID;
 
+    public void setContent(String[] content) {
+        this.content = content;
+    }
+
+    public void setDrawer(TextDrawer drawer) {
+        this.drawer = drawer;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setPos(Coordinate pos) {
+        this.pos = pos;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     @Override
     public void draw(Graphics g, int zoom) {

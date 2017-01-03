@@ -24,6 +24,49 @@ public class TextDrawer{
     private int step;
     private int count;
     private int stepCount = 1;
+
+    public void setPos(Coordinate pos) {
+        this.pos = pos;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void setDecay(int decay) {
+        this.decay = decay;
+    }
+
+    public void setStep(int step) {
+        this.step = step;
+    }
+
+    public void setStepCount(int stepCount) {
+        this.stepCount = stepCount;
+    }
+
+
+    public Coordinate getPos() {
+        return pos;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public int getDecay() {
+        return decay;
+    }
+
+    public int getStep() {
+        return step;
+    }
+
+    public int getStepCount() {
+        return stepCount;
+    }
+
+
     public void draw(Graphics g, String[] content, int zoom, int size) {
         count++;
         if(count >= step){
