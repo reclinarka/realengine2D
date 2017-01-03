@@ -20,7 +20,7 @@ public class Main extends Thread{
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Threader t = new Threader();
         t.start();
         System.out.println("MY_NAME".length());
@@ -29,7 +29,13 @@ public class Main extends Thread{
         graphicsHandler.setSelf(graphicsHandler);
         graphicsHandler.getMaps().add(new Map());
         graphicsHandler.start();
-        graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("Sans",100,100,38 * modifier,32 * modifier));
+        try {
+            graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("Sans", 100, 100, 38 * modifier, 32 * modifier, new String[]{
+                    "/de/reclinarka/resources/Sans_0.png", "/de/reclinarka/resources/Sans_1.png"
+            }));
+        } catch(Exception e){
+            e.printStackTrace();
+        }
         graphicsHandler.getCurrentMap().getContent().add(new TextField(
                new String[] {"Hey...     ","my name is","Sans.     ","Let's start!"},90,180, (float) 0.07, 10,60
         ));

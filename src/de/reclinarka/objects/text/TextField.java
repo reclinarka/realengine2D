@@ -18,6 +18,10 @@ public class TextField implements Drawable{
         this.size = size;
     }
 
+    public TextField(){
+
+    }
+
     private int size;
     private int steps;
     private TextDrawer drawer;

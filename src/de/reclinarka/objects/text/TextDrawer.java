@@ -14,6 +14,11 @@ public class TextDrawer{
         this.step = step;
         this.decay = decay;
     }
+
+    public TextDrawer() {
+
+    }
+
     private int decay;
     private Coordinate pos;
     private int step;
