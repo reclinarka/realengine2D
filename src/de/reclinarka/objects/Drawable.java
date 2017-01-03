@@ -9,6 +9,7 @@ public interface Drawable {
     void draw(Graphics g, int zoom);
 
     Coordinate getPos();
+    String getID();
 
     //int getWidth();
 

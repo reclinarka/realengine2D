@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +17,7 @@ public class Animation {
         }
         countCap = (int) (120 * speed);
     }
-    private ArrayList<BufferedImage> content;
+    private ArrayList<BufferedImage> content = new ArrayList<BufferedImage>();
     private int count;
     private int countCap;
 
@@ -24,8 +25,9 @@ public class Animation {
     }
 
     void textureImport(String inSource){
+        BufferedImage tmp;
         try {
-            BufferedImage tmp = ImageIO.read(getClass().getResourceAsStream(inSource));
+            tmp = ImageIO.read(getClass().getResourceAsStream(inSource));
             content.add(tmp);
         } catch (IOException e) {
             e.printStackTrace();

@@ -44,7 +44,7 @@ public class Block implements Drawable {
 
     //Getter
 
-    public String getBlock_ID() {
+    public String getID() {
         return Block_ID;
     }
 

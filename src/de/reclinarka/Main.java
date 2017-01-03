@@ -30,15 +30,16 @@ public class Main extends Thread{
         graphicsHandler.getMaps().add(new Map());
         graphicsHandler.start();
         try {
-            graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("Sans", 100, 100, 38 * modifier, 32 * modifier, new String[]{
+            graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("sans", 100, 100, 38 * modifier, 32 * modifier, new String[]{
                     "/de/reclinarka/resources/Sans_0.png", "/de/reclinarka/resources/Sans_1.png"
             }));
         } catch(Exception e){
             e.printStackTrace();
         }
         graphicsHandler.getCurrentMap().getContent().add(new TextField(
-               new String[] {"Hey...     ","my name is","Sans.     ","Let's start!"},90,180, (float) 0.07, 10,60
+               new String[] {"Hey...     ","my name is","Sans.     ","Let's start!"},90,180, (float) 0.07, 10,60, "sans_dialog"
         ));
+
 
 
 
