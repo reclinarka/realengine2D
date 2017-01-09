@@ -9,8 +9,11 @@ import java.awt.*;
  */
 public interface Drawable {
     void draw(Graphics g, int zoom);
+    void update();
 
     Coordinate getPos();
+    int getWidth();
+    int getHeight();
     String getID();
     Animation getAnimation();
 

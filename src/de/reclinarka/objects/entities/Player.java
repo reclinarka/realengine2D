@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.lang.management.BufferPoolMXBean;
 
 /**
  * Created by reclinarka on 29.12.2016.
@@ -17,11 +16,12 @@ public class Player implements Drawable {
 
     public Player(int mapX, int mapY){
         pos = new Coordinate( mapX, mapY);
+        alive = false;
     }
 
+    private boolean alive;
 
-
-    private void update(){
+    private void textureUpdate(){
         try {
             texture = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/resources/Player.png"));
         } catch (IOException e) {
@@ -38,6 +38,21 @@ public class Player implements Drawable {
     private Coordinate pos;
 
     private String ID;
+
+    @Override
+    public void update(){
+
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
 
     @Override
     public Animation getAnimation() {

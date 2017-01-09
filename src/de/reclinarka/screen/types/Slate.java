@@ -23,9 +23,9 @@ public class Slate extends JPanel {
 
     protected void paintComponent(Graphics g) {
 
-        graphicsHandler.getCurrentMap().getContent().forEach((f) -> f.draw(g, graphicsHandler.getZoom() ));
-        g.setFont( g.getFont().deriveFont( (float) 50 ) );
-        //g.drawString( String.valueOf( Integer.toString( graphicsHandler.getZoom() ).toCharArray() ),10,30);
+        graphicsHandler.getCurrentMap().paintComponents(g, graphicsHandler.getZoom());
+
+
 
     }
 }

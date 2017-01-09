@@ -10,6 +10,7 @@ import sun.audio.AudioStream;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -56,6 +57,14 @@ public class Map {
 
     public int getScreenY() {
         return ScreenY;
+    }
+
+    public void updateComponents(){
+
+    }
+
+    public void paintComponents(Graphics g, int zoom){
+        getContent().forEach((f) -> f.draw(g, zoom ));
     }
 
     public ArrayList<Drawable> getContent() {

@@ -71,6 +71,18 @@ public class TextField implements Drawable {
 
 
     }
+    @Override
+    public void update(){}
+
+    @Override
+    public int getHeight() {
+        return 0;
+    }
+
+    @Override
+    public int getWidth() {
+        return 0;
+    }
 
     public void setSteps(int steps) {
         this.steps = steps;

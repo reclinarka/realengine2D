@@ -60,6 +60,16 @@ public class ImgDisplay implements Drawable{
     private Coordinate pos;
 
     @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    @Override
     public Animation getAnimation() {
         return animation;
     }
@@ -67,6 +77,11 @@ public class ImgDisplay implements Drawable{
     @Override
     public String getID() {
         return ID;
+    }
+
+    @Override
+    public void update(){
+
     }
 
     @Override

@@ -17,13 +17,13 @@ public class Block implements Drawable {
         pos = new Coordinate(mapX,mapY);
         hitbox = new Hitbox(mapX,mapY,width,height);
         Block_ID = "default";
-        update();
+        textureUpdate();
     }
 
     public Block() {
     }
 
-    protected void update(){
+    protected void textureUpdate(){
         try {
             texture = ImageIO.read(getClass().getResourceAsStream("/de/reclinarka/objects/resources/Block_" + Block_ID + ".png"));
         } catch (IOException e) {
@@ -49,10 +49,12 @@ public class Block implements Drawable {
         return Block_ID;
     }
 
+    @Override
     public int getHeight() {
         return height;
     }
 
+    @Override
     public int getWidth() {
         return width;
     }
@@ -81,6 +83,11 @@ public class Block implements Drawable {
 
     public void setBlock_ID(String block_ID) {
         Block_ID = block_ID;
+    }
+
+    @Override
+    public void update(){
+
     }
 
     @Override
