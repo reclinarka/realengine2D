@@ -1,6 +1,7 @@
 package de.reclinarka.maps;
 
 import de.reclinarka.Main;
+import de.reclinarka.graphics.GraphicsHandler;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.entities.Player;
@@ -18,23 +19,28 @@ import java.util.ArrayList;
  */
 public class Map {
 
-    public Map(){
+    public Map(int mapX, int mapY, GraphicsHandler graphicsHandler){
         init();
-
+        Player P1 = new Player(mapX, mapY, "Player 1");
+        this.graphicsHandler = graphicsHandler;
+        Content.add(P1);
+        Players.add(P1);
     }
 
     private void init(){
         Sound = new Media(getClass().getResource("/de/reclinarka/resources/Sound.mp3").toString());
     }
     private Media Sound;
+    private GraphicsHandler graphicsHandler;
     private ArrayList<Drawable> Content = new ArrayList<Drawable>();
     private int ScreenX = 0;
     private int ScreenY = 0;
     private ArrayList<Player> Players = new ArrayList<Player>();
 
     public void alignObjects(int zoom){
+        ScreenX = Players.get(0).getPos().getMapX() - ( graphicsHandler.getFrame().getWidth() / 2 );
+        ScreenY = Players.get(0).getPos().getMapY() - ( graphicsHandler.getFrame().getHeight() / 2 );
         Content.forEach( (f) -> alignObject(f, zoom) );
-        Players.forEach( (f) -> alignObject(f, zoom) );
     }
 
     private void alignObject(Drawable obj, int zoom){

@@ -14,9 +14,11 @@ import java.io.IOException;
  */
 public class Player implements Drawable {
 
-    public Player(int mapX, int mapY){
+    public Player(int mapX, int mapY, String ID){
         pos = new Coordinate( mapX, mapY);
         alive = false;
+        this.ID = ID;
+        textureUpdate();
     }
 
     private boolean alive;

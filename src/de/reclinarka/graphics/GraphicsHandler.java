@@ -15,7 +15,7 @@ public class GraphicsHandler extends Thread{
 
     private Window frame;
 
-    private int zoom = 3;
+    private int zoom = 1;
 
     private GraphicsHandler self;
 
@@ -26,10 +26,9 @@ public class GraphicsHandler extends Thread{
     @Override
     public void run() {
         frame = new Window(800,800,"game", new Slate(self),self);
-        MediaPlayer mp = new MediaPlayer(getCurrentMap().getSound());
-
-        mp.play();
-        mp.setVolume(0.1);
+        //MediaPlayer mp = new MediaPlayer(getCurrentMap().getSound());
+        //mp.play();
+        //mp.setVolume(0.1);
 
         while (true){
             //if(zoom <= 0) zoom = 1;
@@ -66,6 +65,12 @@ public class GraphicsHandler extends Thread{
     public int getZoom() {
         return zoom;
     }
+
+    public Window getFrame() {
+        return frame;
+    }
+
+
 
     public void setZoom(int zoom) {
         this.zoom = zoom;

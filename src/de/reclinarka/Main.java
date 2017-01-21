@@ -24,16 +24,16 @@ public class Main extends Thread {
         int modifier = 2;
         GraphicsHandler graphicsHandler = new GraphicsHandler();
         graphicsHandler.setSelf(graphicsHandler);
-        graphicsHandler.getMaps().add(new Map());
+        graphicsHandler.getMaps().add(new Map(10,10,graphicsHandler));
         graphicsHandler.start();
 
-        graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("sans", 100, 100, 38 * modifier, 32 * modifier, new String[]{
-                "/de/reclinarka/resources/Sans_0.png", "/de/reclinarka/resources/Sans_1.png"
-        }));
-        graphicsHandler.getCurrentMap().getContent().add(new TextField(
-                new String[]{"Hey...     ", "my name is", "Sans.     ", "Let's start!"}, 90, 180, (float) 0.07, 10, 60, "sans_dialog",
-                "sans", new int[]{15, 20, 40, 45}, graphicsHandler
-        ));
+        //graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("sans", 100, 100, 38 * modifier, 32 * modifier, new String[]{
+        //        "/de/reclinarka/resources/Sans_0.png", "/de/reclinarka/resources/Sans_1.png"
+        //}));
+        //graphicsHandler.getCurrentMap().getContent().add(new TextField(
+        //        new String[]{"Hey...     ", "my name is", "Sans.     ", "Let's start!"}, 90, 180, (float) 0.07, 10, 60, "sans_dialog",
+        //        "sans", new int[]{15, 20, 40, 45}, graphicsHandler
+        //));
 
 
     }
