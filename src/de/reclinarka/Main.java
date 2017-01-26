@@ -4,6 +4,7 @@ package de.reclinarka;
 import de.reclinarka.graphics.GraphicsHandler;
 import de.reclinarka.maps.Map;
 import de.reclinarka.objects.background.ImgDisplay;
+import de.reclinarka.objects.solid.blocks.Brick;
 import de.reclinarka.objects.text.TextField;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
@@ -22,9 +23,10 @@ public class Main extends Thread {
         t.start();
         System.out.println("MY_NAME".length());
         int modifier = 2;
-        GraphicsHandler graphicsHandler = new GraphicsHandler();
+        GraphicsHandler graphicsHandler = new GraphicsHandler("Test1234 || Ralf");
         graphicsHandler.setSelf(graphicsHandler);
         graphicsHandler.getMaps().add(new Map(10,10,graphicsHandler));
+        graphicsHandler.getMaps().get(0).getContent().add(new Brick(42,10));
         graphicsHandler.start();
 
         //graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("sans", 100, 100, 38 * modifier, 32 * modifier, new String[]{

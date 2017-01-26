@@ -68,7 +68,8 @@ public class Player implements Drawable {
 
     @Override
     public void draw(Graphics g, int zoom) {
-        g.drawImage( texture,pos.getX(), pos.getY(), width * zoom, height * zoom,null);
+        g.drawImage( texture, pos.getX(), pos.getY(), width * zoom, height * zoom,null);
+        //System.out.println(getPos().getX() + ", " + getPos().getY());
     }
 
     @Override

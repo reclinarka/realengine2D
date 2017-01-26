@@ -5,6 +5,7 @@ import de.reclinarka.graphics.GraphicsHandler;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.entities.Player;
+import de.reclinarka.objects.solid.blocks.Brick;
 import javafx.scene.media.Media;
 import sun.audio.AudioStream;
 
@@ -38,15 +39,15 @@ public class Map {
     private ArrayList<Player> Players = new ArrayList<Player>();
 
     public void alignObjects(int zoom){
-        ScreenX = Players.get(0).getPos().getMapX() - ( graphicsHandler.getFrame().getWidth() / 2 );
-        ScreenY = Players.get(0).getPos().getMapY() - ( graphicsHandler.getFrame().getHeight() / 2 );
+        ScreenX =  Players.get(0).getPos().getMapX() + Players.get(0).getHeight() -  ( graphicsHandler.getFrame().getWidth() / 2 ) ;
+        ScreenY =  Players.get(0).getPos().getMapY() + Players.get(0).getWidth() - ( graphicsHandler.getFrame().getHeight() / 2 ) ;
         Content.forEach( (f) -> alignObject(f, zoom) );
     }
 
     private void alignObject(Drawable obj, int zoom){
         Coordinate pos = obj.getPos();
-        pos.setX( (pos.getMapX() - ScreenX) * zoom );
-        pos.setY( (pos.getMapY() - ScreenY) * zoom );
+        pos.setX( (pos.getMapX() * zoom) - ScreenX   );
+        pos.setY( (pos.getMapY() * zoom) - ScreenY   );
     }
 
     public Media getSound() {

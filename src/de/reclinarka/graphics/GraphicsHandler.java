@@ -13,19 +13,26 @@ import java.util.concurrent.TimeUnit;
  */
 public class GraphicsHandler extends Thread{
 
+    public GraphicsHandler(String ID){
+        this.ID = ID;
+
+    }
+
+    private String ID;
+
     private Window frame;
 
-    private int zoom = 1;
+    private int zoom = 5;
 
     private GraphicsHandler self;
 
     private int selected = 0;
 
-    private ArrayList<Map> Maps = new ArrayList<Map>();
+    private ArrayList<Map> Maps = new ArrayList<>();
 
     @Override
     public void run() {
-        frame = new Window(800,800,"game", new Slate(self),self);
+        frame = new Window(800,800, ID, new Slate(self),self);
         //MediaPlayer mp = new MediaPlayer(getCurrentMap().getSound());
         //mp.play();
         //mp.setVolume(0.1);
@@ -70,7 +77,9 @@ public class GraphicsHandler extends Thread{
         return frame;
     }
 
-
+    public String getID() {
+        return ID;
+    }
 
     public void setZoom(int zoom) {
         this.zoom = zoom;

@@ -11,7 +11,7 @@ public class Brick extends Block {
     public Brick(int mapX, int mapY){
         setPos(new Coordinate(mapX,mapY));
         setHitbox(new Hitbox(mapX,mapY,getWidth(),getHeight()));
-        setBlock_ID( "Brick");
+        setBlock_ID("Brick");
         update();
     }
 }
