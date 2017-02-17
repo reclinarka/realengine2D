@@ -82,6 +82,7 @@ public class Player implements Drawable {
     }
 
     private void colliding(Drawable obj1, Coordinate newPos ){
+        if(obj1.getPos() == pos) return;
         if(new Rectangle(obj1.getPos().getMapX(), obj1.getPos().getMapY(), obj1.getWidth(), obj1.getHeight() ).intersects(
                 newPos.getMapX(), newPos.getMapY(), width, height)){
                 checking = true;
