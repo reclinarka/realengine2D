@@ -7,6 +7,6 @@ import de.reclinarka.objects.Coordinate;
  */
 public class CollisionChecker {
     public static Coordinate newPos(){
-        return null;
+        return new Coordinate(20,20);
     }
 }

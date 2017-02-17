@@ -58,7 +58,8 @@ public class Player implements Drawable {
     @Override
     public void update(ArrayList<Drawable> Content){
         Coordinate newPos = calcPos();
-        if (check(Content, newPos) == null){
+        Coordinate updatePos = check(Content,newPos);
+        if (updatePos == null){
             pos = newPos;
             checking = false;
             return;
