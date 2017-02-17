@@ -12,6 +12,6 @@ public class Brick extends Block {
         setPos(new Coordinate(mapX,mapY));
         setHitbox(new Hitbox(mapX,mapY,getWidth(),getHeight()));
         setBlock_ID("Brick");
-        update();
+        textureUpdate();
     }
 }

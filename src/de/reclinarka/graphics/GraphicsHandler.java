@@ -22,7 +22,7 @@ public class GraphicsHandler extends Thread{
 
     private Window frame;
 
-    private int zoom = 5;
+    private int zoom = 1;
 
     private GraphicsHandler self;
 
@@ -40,8 +40,12 @@ public class GraphicsHandler extends Thread{
         while (true){
             //if(zoom <= 0) zoom = 1;
             //if (zoom >6) zoom = 1;
+
             getCurrentMap().alignObjects(zoom);
+            getCurrentMap().updateComponents();
             frame.repaint();
+
+
 
             //Sets framerate
             try {

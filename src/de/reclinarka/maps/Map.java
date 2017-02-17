@@ -39,8 +39,8 @@ public class Map {
     private ArrayList<Player> Players = new ArrayList<Player>();
 
     public void alignObjects(int zoom){
-        ScreenX =  Players.get(0).getPos().getMapX() + Players.get(0).getHeight() -  ( graphicsHandler.getFrame().getWidth() / 2 ) ;
-        ScreenY =  Players.get(0).getPos().getMapY() + Players.get(0).getWidth() - ( graphicsHandler.getFrame().getHeight() / 2 ) ;
+        ScreenX =  Players.get(0).getPos().getMapX() * zoom + Players.get(0).getHeight() -  ( graphicsHandler.getFrame().getWidth() / 2 ) ;
+        ScreenY =  Players.get(0).getPos().getMapY() * zoom + Players.get(0).getWidth() - ( graphicsHandler.getFrame().getHeight() / 2 ) ;
         Content.forEach( (f) -> alignObject(f, zoom) );
     }
 
@@ -67,7 +67,12 @@ public class Map {
     }
 
     public void updateComponents(){
+        getContent().forEach((f) -> f.update());
 
+    }
+
+    public Drawable testCollision(){
+        return null;
     }
 
     public void paintComponents(Graphics g, int zoom){

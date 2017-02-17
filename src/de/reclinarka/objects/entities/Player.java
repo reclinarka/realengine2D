@@ -33,6 +33,8 @@ public class Player implements Drawable {
 
     private int width = 16;
 
+    private float velocity = -4;
+
     private int height = 32;
 
     BufferedImage texture;
@@ -41,8 +43,22 @@ public class Player implements Drawable {
 
     private String ID;
 
+    public float getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(float velocity) {
+        this.velocity = velocity;
+    }
+
     @Override
     public void update(){
+        pos.setMapY( pos.getMapY() + (int) ( velocity ) );
+
+        if(velocity < 3) {
+
+            velocity += 0.07;
+        }
 
     }
 
@@ -68,8 +84,13 @@ public class Player implements Drawable {
 
     @Override
     public void draw(Graphics g, int zoom) {
+        g.drawString("x", pos.getX(),pos.getY());
+        Font tmp = new Font(g.getFont().getName(),g.getFont().getStyle(),g.getFont().getSize());
+        g.setFont(new Font(null,g.getFont().getStyle(),10 * zoom));
         g.drawImage( texture, pos.getX(), pos.getY(), width * zoom, height * zoom,null);
+        g.drawString("("+ pos.getMapX() + "|" + pos.getMapY() + ")",pos.getX(), pos.getY() - 10 * zoom );
         //System.out.println(getPos().getX() + ", " + getPos().getY());
+        g.setFont(tmp);
     }
 
     @Override

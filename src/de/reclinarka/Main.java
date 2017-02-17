@@ -26,7 +26,13 @@ public class Main extends Thread {
         GraphicsHandler graphicsHandler = new GraphicsHandler("Test1234 || Ralf");
         graphicsHandler.setSelf(graphicsHandler);
         graphicsHandler.getMaps().add(new Map(10,10,graphicsHandler));
-        graphicsHandler.getMaps().get(0).getContent().add(new Brick(42,10));
+        graphicsHandler.getMaps().get(0).getContent().add(new Brick(10,42));
+        graphicsHandler.getMaps().get(0).getContent().add(new Brick(0,42));
+        //for(int i = 0; i < 20; i++) {
+        //    for(int b = -20; b < 20; b++){
+        //        graphicsHandler.getMaps().get(0).getContent().add(new Brick(0 + (b * 16),42 + (i * 16)));
+        //    }
+        //}
         graphicsHandler.start();
 
         //graphicsHandler.getCurrentMap().getContent().add(new ImgDisplay("sans", 100, 100, 38 * modifier, 32 * modifier, new String[]{
