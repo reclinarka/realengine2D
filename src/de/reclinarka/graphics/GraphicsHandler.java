@@ -40,9 +40,9 @@ public class GraphicsHandler extends Thread{
         while (true){
             //if(zoom <= 0) zoom = 1;
             //if (zoom >6) zoom = 1;
-
-            getCurrentMap().alignObjects(zoom);
             getCurrentMap().updateComponents();
+            getCurrentMap().alignObjects(zoom);
+
             frame.repaint();
 
 

@@ -7,6 +7,7 @@ import de.reclinarka.objects.animation.Animation;
 import de.reclinarka.objects.text.dialogue.DialogueAnimator;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by reclinarka on 29.12.2016.
@@ -72,7 +73,7 @@ public class TextField implements Drawable {
 
     }
     @Override
-    public void update(){}
+    public void update(ArrayList<Drawable> Content){}
 
     @Override
     public int getHeight() {

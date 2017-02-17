@@ -1,13 +1,17 @@
 package de.reclinarka.objects.entities;
 
+import com.sun.org.apache.regexp.internal.RE;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
 import de.reclinarka.objects.animation.Animation;
+import de.reclinarka.util.CollisionChecker;
+import org.w3c.dom.css.Rect;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by reclinarka on 29.12.2016.
@@ -52,15 +56,48 @@ public class Player implements Drawable {
     }
 
     @Override
-    public void update(){
-        pos.setMapY( pos.getMapY() + (int) ( velocity ) );
+    public void update(ArrayList<Drawable> Content){
+        Coordinate newPos = calcPos();
+        if (check(Content, newPos) == null){
+            pos = newPos;
+            checking = false;
+            return;
+        }
+        checking = false;
+        velocity = 0;
+
+
+
+    }
+
+    private boolean checking = false;
+    private Drawable colliding;
+
+    private Coordinate check(ArrayList<Drawable> Content, Coordinate newPos){
+        Content.forEach( (f) -> colliding(f,newPos) );
+
+        if(checking == false)return null;
+        return CollisionChecker.newPos();
+    }
+
+    private void colliding(Drawable obj1, Coordinate newPos ){
+        if(new Rectangle(obj1.getPos().getMapX(), obj1.getPos().getMapY(), obj1.getWidth(), obj1.getHeight() ).intersects(
+                newPos.getMapX(), newPos.getMapY(), width, height)){
+                checking = true;
+                colliding = obj1;
+        }
+    }
+
+    private Coordinate calcPos(){
 
         if(velocity < 3) {
 
             velocity += 0.07;
         }
-
+        return new Coordinate(pos.getMapX(),pos.getMapY() + (int) ( velocity ));
     }
+
+
 
     @Override
     public int getHeight() {

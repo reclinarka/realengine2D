@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by reclinarka on 29.12.2016.
@@ -80,7 +81,7 @@ public class ImgDisplay implements Drawable{
     }
 
     @Override
-    public void update(){
+    public void update(ArrayList<Drawable> Content){
 
     }
 

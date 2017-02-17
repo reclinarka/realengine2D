@@ -67,7 +67,7 @@ public class Map {
     }
 
     public void updateComponents(){
-        getContent().forEach((f) -> f.update());
+        getContent().forEach((f) -> f.update(Content));
 
     }
 
