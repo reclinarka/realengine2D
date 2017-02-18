@@ -65,7 +65,7 @@ public class Player implements Drawable {
             return;
         }
         checking = false;
-        velocity = 0;
+        velocity = -3;
 
 
 
@@ -93,8 +93,11 @@ public class Player implements Drawable {
     private Coordinate calcPos(){
 
         if(velocity < 3) {
-
-            velocity += 0.07;
+            if(velocity < 1 && velocity > -1){
+                velocity += 0.4;
+            } else {
+                velocity += 0.07;
+            }
         }
         return new Coordinate(pos.getMapX(),pos.getMapY() + (int) ( velocity ));
     }
@@ -124,6 +127,7 @@ public class Player implements Drawable {
     @Override
     public void draw(Graphics g, int zoom) {
         g.drawString("x", pos.getX(),pos.getY());
+        g.drawString("(" + velocity + ")", pos.getX(), pos.getY() - 3 * zoom);
         Font tmp = new Font(g.getFont().getName(),g.getFont().getStyle(),g.getFont().getSize());
         g.setFont(new Font(null,g.getFont().getStyle(),10 * zoom));
         g.drawImage( texture, pos.getX(), pos.getY(), width * zoom, height * zoom,null);

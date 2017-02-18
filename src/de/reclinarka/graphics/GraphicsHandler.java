@@ -22,7 +22,7 @@ public class GraphicsHandler extends Thread{
 
     private Window frame;
 
-    private int zoom = 4;
+    private int zoom = 2;
 
     private GraphicsHandler self;
 
