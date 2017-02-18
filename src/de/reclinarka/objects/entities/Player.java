@@ -66,6 +66,7 @@ public class Player implements Drawable {
         }
         checking = false;
         velocity = -3;
+        pos = updatePos;
 
 
 
@@ -78,7 +79,7 @@ public class Player implements Drawable {
         Content.forEach( (f) -> colliding(f,newPos) );
 
         if(checking == false)return null;
-        return CollisionChecker.newPos();
+        return CollisionChecker.newPos(colliding, pos, height, width);
     }
 
     private void colliding(Drawable obj1, Coordinate newPos ){
