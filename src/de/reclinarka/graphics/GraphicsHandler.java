@@ -3,6 +3,7 @@ package de.reclinarka.graphics;
 import de.reclinarka.maps.Map;
 import de.reclinarka.screen.Window;
 import de.reclinarka.screen.types.Slate;
+import de.reclinarka.util.ButtonListener;
 import javafx.scene.media.MediaPlayer;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class GraphicsHandler extends Thread{
     @Override
     public void run() {
         frame = new Window(800,800, ID, new Slate(self),self);
+        frame.addKeyListener(new ButtonListener(self) );
         //MediaPlayer mp = new MediaPlayer(getCurrentMap().getSound());
         //mp.play();
         //mp.setVolume(0.1);

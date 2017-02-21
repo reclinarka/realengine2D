@@ -37,6 +37,8 @@ public class Player implements Drawable {
 
     private int width = 16;
 
+    public int speed = 3;
+
     private float velocity = -4;
 
     private int height = 32;
@@ -65,8 +67,8 @@ public class Player implements Drawable {
             return;
         }
         checking = false;
-        velocity = -3;
-        pos = updatePos;
+        velocity = 0;
+        //pos = updatePos;
 
 
 
@@ -102,6 +104,7 @@ public class Player implements Drawable {
         }
         return new Coordinate(pos.getMapX(),pos.getMapY() + (int) ( velocity ));
     }
+
 
 
 
