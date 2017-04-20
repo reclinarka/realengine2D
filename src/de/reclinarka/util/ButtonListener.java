@@ -35,26 +35,34 @@ public class ButtonListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyChar() == ' '){      //jumpButton
-            graphicsHandler.getCurrentMap().getPlayers().get(0).setVelocity(-3);
+            graphicsHandler.getCurrentMap().getPlayers().get(0).getNewVelocity().setY(-3);
         }
 
         if(e.getKeyChar() == 'd'){
-            right.active = true;
+            graphicsHandler.getCurrentMap().getPlayers().get(0).getNewVelocity().setX(3);
         }
 
         if(e.getKeyChar() == 'a'){
-            left.active = true;
+            graphicsHandler.getCurrentMap().getPlayers().get(0).getNewVelocity().setX(-3);
+        }
+
+        if(e.getKeyChar() == '+'){
+            graphicsHandler.setZoom(graphicsHandler.getZoom()+1);
+        }
+
+        if(e.getKeyChar() == '-'){
+            graphicsHandler.setZoom(graphicsHandler.getZoom()-1);
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         if(e.getKeyChar() == 'd'){
-            right.active = false;
+            graphicsHandler.getCurrentMap().getPlayers().get(0).getNewVelocity().setX(0);
         }
 
         if(e.getKeyChar() == 'a'){
-            left.active = false;
+            graphicsHandler.getCurrentMap().getPlayers().get(0).getNewVelocity().setX(0);
         }
     }
 }

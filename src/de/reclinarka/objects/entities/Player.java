@@ -1,11 +1,10 @@
 package de.reclinarka.objects.entities;
 
-import com.sun.org.apache.regexp.internal.RE;
 import de.reclinarka.objects.Coordinate;
 import de.reclinarka.objects.Drawable;
+import de.reclinarka.objects.Vector2D;
 import de.reclinarka.objects.animation.Animation;
 import de.reclinarka.util.CollisionChecker;
-import org.w3c.dom.css.Rect;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -41,6 +40,8 @@ public class Player implements Drawable {
 
     private float velocity = -4;
 
+    private Vector2D newVelocity = new Vector2D();
+
     private int height = 32;
 
     BufferedImage texture;
@@ -48,6 +49,10 @@ public class Player implements Drawable {
     private Coordinate pos;
 
     private String ID;
+
+    public Vector2D getNewVelocity() {
+        return newVelocity;
+    }
 
     public float getVelocity() {
         return velocity;
@@ -89,20 +94,21 @@ public class Player implements Drawable {
         if(new Rectangle(obj1.getPos().getMapX(), obj1.getPos().getMapY(), obj1.getWidth(), obj1.getHeight() ).intersects(
                 newPos.getMapX(), newPos.getMapY(), width, height)){
                 checking = true;
+                newVelocity.setY(0);
                 colliding = obj1;
         }
     }
 
     private Coordinate calcPos(){
 
-        if(velocity < 3) {
-            if(velocity < 1 && velocity > -1){
-                velocity += 0.4;
+        if(newVelocity.getY() < 5) {
+            if(newVelocity.getY() < 1 && newVelocity.getY() > -1){
+                newVelocity.setY( (float) (newVelocity.getY() + 0.4) );
             } else {
-                velocity += 0.07;
+                newVelocity.setY( (float) (newVelocity.getY() + 0.07) );
             }
         }
-        return new Coordinate(pos.getMapX(),pos.getMapY() + (int) ( velocity ));
+        return new Coordinate(pos.getMapX() + (int) (newVelocity.getX()),pos.getMapY() + (int) ( newVelocity.getY() ));
     }
 
 
@@ -131,7 +137,7 @@ public class Player implements Drawable {
     @Override
     public void draw(Graphics g, int zoom) {
         g.drawString("x", pos.getX(),pos.getY());
-        g.drawString("(" + velocity + ")", pos.getX(), pos.getY() - 3 * zoom);
+        g.drawString("(" + newVelocity.getX() + "|" + newVelocity.getY() + ")", pos.getX(), pos.getY() - 3 * zoom);
         Font tmp = new Font(g.getFont().getName(),g.getFont().getStyle(),g.getFont().getSize());
         g.setFont(new Font(null,g.getFont().getStyle(),10 * zoom));
         g.drawImage( texture, pos.getX(), pos.getY(), width * zoom, height * zoom,null);
